@@ -1,0 +1,17 @@
+<div class="contact">
+  <div class="contact-screen">
+    <div class="contact-icon">
+      <img src="images/illustrations/book.png" alt="CrowdTilt" />
+      <h4>CrowdTilt<small>Full Contact</small></h4>
+    </div>
+
+    <div class="contact-form">
+      <div class="control-group">
+        <input type="text" class="contact-field" value="" placeholder="Enter your email address" id="email" autofocus />
+        <label class="contact-field-icon fui-mail-16" for="email"></label>
+      </div>
+
+      <a class="btn btn-primary btn-large btn-block" href="#">Find User Details</a>
+    </div>
+  </div>
+</div>
