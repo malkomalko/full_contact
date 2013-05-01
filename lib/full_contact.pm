@@ -1,10 +1,14 @@
 package full_contact;
-use Dancer ':syntax';
+use Dancer ":syntax";
 
-our $VERSION = '0.1';
+our $VERSION = "0.1";
 
-get '/' => sub {
-  template 'index';
+get "/" => sub {
+  template "index";
+};
+
+get "/demo" => sub {
+  template "demo";
 };
 
 true;
