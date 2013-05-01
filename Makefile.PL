@@ -17,9 +17,10 @@ WriteMakefile(
       : ()),
     PL_FILES            => {},
     PREREQ_PM => {
-        'Test::More' => 0,
-        'YAML'       => 0,
-        'Dancer'     => 1.3112,
+        'Test::More'    => 0,
+        'YAML'          => 0,
+        'Dancer'        => 1.3112,
+        'REST::Client'  => 249
     },
     dist                => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
     clean               => { FILES => 'full_contact-*' },

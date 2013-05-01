@@ -22,16 +22,8 @@ FullContactUserViewModel.prototype = {
     var apiBase = "https://api.fullcontact.com/v2/"
       , url = apiBase + "person.json?apiKey=8086e1072816dd03&email="
 
-    $.ajax(url + escape(email), {
-      async: true,
-      type: "GET",
-      success: function(result){
-        callback(null, result)
-      },
-      error: function(obj, status, error){
-        callback({ message: "there was an error with your request" })
-      },
-      dataType: "jsonp"
+    request.get("/api/1/contacts/" + escape(email), function(res){
+      callback(res.error, res.body)
     })
   },
   fetchContact: function(el){
