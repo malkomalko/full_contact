@@ -11,7 +11,8 @@ var FullContactUserViewModel = function(){
   var self = this
 
   self.email = ko.observable("")
-  self.fullName = ko.observable()
+  self.fullName = ko.observable("")
+  self.madeRequest = ko.observable(false)
 }
 
 FullContactUserViewModel.prototype = {
@@ -35,7 +36,12 @@ FullContactUserViewModel.prototype = {
     var self = this
 
     this.emailLookup(this.email(), function(err, res){
-
+      if (err) return console.log(err.message)
+      self.updateUser(res)
     })
+  },
+  updateUser: function(res){
+    this.madeRequest(true)
+    this.fullName(res.contactInfo.fullName)
   }
 }
