@@ -12,7 +12,9 @@ var FullContactUserViewModel = function(){
 
   self.email = ko.observable("")
   self.fullName = ko.observable("")
+  self.likelihood = ko.observable()
   self.madeRequest = ko.observable(false)
+  self.photo = ko.observable()
 }
 
 FullContactUserViewModel.prototype = {
@@ -42,7 +44,10 @@ FullContactUserViewModel.prototype = {
   },
   updateUser: function(res){
     $(".contact-screen").css("min-height", 214)
-    this.madeRequest(true)
+
     this.fullName(res.contactInfo.fullName)
+    this.madeRequest(true)
+    if (!_.isEmpty(res.photos)) this.photo(res.photos[0].url)
+    this.likelihood(res.likelihood)
   }
 }
