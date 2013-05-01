@@ -1,10 +1,13 @@
 package full_contact;
 use Dancer ":syntax";
+use JSON;
 use REST::Client;
 
 our $VERSION = "0.1";
 
 set serializer => "JSON";
+
+my $client = REST::Client->new();
 
 get "/" => sub {
   template "index";
@@ -12,16 +15,12 @@ get "/" => sub {
 
 get "/api/1/contacts/:email" => sub {
   my $email = params->{email};
+  my $api_base = "https://api.fullcontact.com/v2/";
+  my $url = $api_base . "person.json?apiKey=8086e1072816dd03&email=" . $email;
 
-  return {
-    "contactInfo" => {
-      "fullName" => "Robert Malko"
-    },
-    "likelihood" => 0.98,
-    "photos" => [{
-      "url" => "https://d2ojpxxtu63wzl.cloudfront.net/static/3b24fde6c57032061d59251280f5007f_b1c4baf6b5b9fa06a10ed26efc80b2e83e7446989de2e2b59e00e0cb558d629d"
-    }]
-  };
+  $client->GET($url, {Accept => 'application/json'});
+
+  return from_json($client->responseContent());
 };
 
 true;
