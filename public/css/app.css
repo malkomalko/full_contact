@@ -2,6 +2,12 @@ body {
   background: #16A085;
 }
 
+.contact-details {
+  background: #1abc9c;
+  color: #FFF;
+  padding-bottom: 24px;
+}
+
 .contact {
   color: white;
   padding: 38px 0 0 0;

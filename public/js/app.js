@@ -41,6 +41,7 @@ FullContactUserViewModel.prototype = {
     })
   },
   updateUser: function(res){
+    $(".contact-screen").css("min-height", 214)
     this.madeRequest(true)
     this.fullName(res.contactInfo.fullName)
   }

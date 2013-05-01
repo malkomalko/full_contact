@@ -22,6 +22,8 @@
   </div>
 
   <div class="span12 contact-details" data-bind="if: madeRequest">
-    <h2>Say hello to <span data-bind="text: fullName"></span></h2>
+    <div class="span8 offset2">
+      <h2>Say hello to <span data-bind="text: fullName"></span></h2>
+    </div>
   </div>
 </div>
