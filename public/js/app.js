@@ -15,6 +15,8 @@ var FullContactUserViewModel = function(){
   self.likelihood = ko.observable()
   self.madeRequest = ko.observable(false)
   self.photo = ko.observable()
+
+  self.errorMessage = ko.observable()
 }
 
 FullContactUserViewModel.prototype = {
@@ -29,13 +31,26 @@ FullContactUserViewModel.prototype = {
   fetchContact: function(el){
     var self = this
 
+    this.reset()
+
+    if (this.email().length == 0) return
+
     this.emailLookup(this.email(), function(err, res){
       if (err) return console.log(err.message)
       self.updateUser(res)
     })
   },
+  reset: function(){
+    this.madeRequest(false)
+    this.errorMessage(null)
+  },
   updateUser: function(res){
     $(".contact-screen").css("min-height", 214)
+
+    if (res.contactInfo == null) {
+      var msg = "Whoops! Looks like we can't find details for that user."
+      return this.errorMessage(msg)
+    }
 
     this.fullName(res.contactInfo.fullName)
     this.madeRequest(true)

@@ -2,6 +2,11 @@ body {
   background: #16A085;
 }
 
+p.error {
+  margin-top: 14px;
+  color: #e74c3c;
+}
+
 .contact-details {
   background: #1abc9c;
   color: #FFF;
