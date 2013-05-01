@@ -1,17 +1,23 @@
-<div class="contact">
-  <div class="contact-screen">
-    <div class="contact-icon">
-      <img src="images/illustrations/book.png" alt="CrowdTilt" />
-      <h4>CrowdTilt<small>Full Contact</small></h4>
-    </div>
+<div class="row">
+  <div class="span12">
+    <div class="contact">
+      <div class="contact-screen">
+        <div class="contact-icon">
+          <img src="images/illustrations/book.png" alt="CrowdTilt" />
+          <h4>CrowdTilt<small>Full Contact</small></h4>
+        </div>
 
-    <div class="contact-form">
-      <div class="control-group">
-        <input type="text" class="contact-field" value="" placeholder="Enter your email address" id="email" autofocus />
-        <label class="contact-field-icon fui-mail-16" for="email"></label>
+        <div class="contact-form">
+          <form data-bind="submit: fetchContact">
+            <div class="control-group">
+              <input type="text" class="contact-field" placeholder="Enter your email address" id="email" autofocus data-bind="value: email"/>
+              <label class="contact-field-icon fui-mail-16" for="email"></label>
+            </div>
+
+            <input type="submit" value="Find User Details" class="btn btn-primary btn-large btn-block">
+          </form>
+        </div>
       </div>
-
-      <a class="btn btn-primary btn-large btn-block" href="#">Find User Details</a>
     </div>
   </div>
 </div>

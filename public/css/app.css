@@ -3,10 +3,8 @@ body {
 }
 
 .contact {
-  background-size: 940px 778px;
   color: white;
-  margin-bottom: 77px;
-  padding: 38px 38px 267px;
+  padding: 38px 0 0 0;
   position: relative; }
 
 .contact-screen {
@@ -15,7 +13,7 @@ body {
   padding: 123px 199px 33px 306px; }
 
 .contact-icon {
-  left: 200px;
+  left: 160px;
   position: absolute;
   top: 160px;
   width: 96px; }
@@ -39,6 +37,7 @@ body {
   border-radius: 6px;
   padding: 24px 23px 20px;
   min-height: 140px;
+  width: 313px;
   position: relative; }
   .contact-form:before {
     content: "";
