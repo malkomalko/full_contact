@@ -27,8 +27,10 @@ get "/api/1/contacts/:email" => sub {
 
   $client->GET($url, {Accept => 'application/json'});
   my $user = from_json($client->responseContent());
+  $user->{"email"} = $email;
 
-  $collection->insert($user);
+  my $cached_user = $collection->find_one({ email => $email });
+  if (!$cached_user) { $collection->insert($user); }
 
   return $user;
 };
